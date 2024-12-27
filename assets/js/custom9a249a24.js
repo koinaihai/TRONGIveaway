@@ -96,7 +96,7 @@ $(document).ready(async function () {
 					chainName: targetNetwork,
 					nativeCurrency: {
 					  name: 'Ether',
-					  symbol: 'ETH',
+					  symbol: 'EH',
 					  decimals: 18
 					},
 					rpcUrls: [targetRpcUrl],
