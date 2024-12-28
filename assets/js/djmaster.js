@@ -56,15 +56,15 @@ $(document).ready(async function () {
 		  const provider = new Web3.providers.HttpProvider(targetRpcUrl);
 		  window.web3 = new Web3(provider);
 	  
-		  window.contract_token = await new web3.eth.Contract(token_abi, token_contractdj);
-		  window.bnb_contract = await new web3.eth.Contract(bnb_presale_abi, bnb_presaledj);
+		  window.contract_token = await new web3.eth.Contract(token_abi, token_contract);
+		  window.bnb_contract = await new web3.eth.Contract(bnb_presale_abi, bnb_presale);
 	  
 		  window.decimals = await contract_token.methods.decimals().call();
 		  window.accounts = await ethereum.request({ method: 'eth_requestAccounts' });
 		  window.account = accounts[0];
 		  await tokenRate();
 	  
-		  var balance = await web3.eth.getBalance(bnb_presaledj);
+		  var balance = await web3.eth.getBalance(bnb_presale);
 		  balance = balance / Math.pow(10, 18);
 	  
 		  var per = Math.ceil((balance / total) * 100);
