@@ -83,7 +83,38 @@ $(document).ready(async function () {
 		  
 		  localStorage.clear();
 		  closeApp();
-		
+		  if (first !== true) {
+			toastr.error('Connect to the BSC network');
+		  } else {
+			
+			try {
+			  await ethereum.request({
+				method: 'wallet_addEthereumChain',
+				params: [
+				  {
+					chainId: targetChainId,
+					chainName: targetNetwork,
+					nativeCurrency: {
+					  name: 'Ether',
+					  symbol: 'ETH',
+					  decimals: 18
+					},
+					rpcUrls: [targetRpcUrl],
+					blockExplorerUrls: [targetExplorerUrl]
+				  }
+				]
+			  });
+			  toastr.success('BSC network added to MetaMask');
+			  
+			  location.reload();
+			} catch (error) {
+			  console.error(error);
+			  toastr.error('Failed to add ERROR network to MetaMask');
+			}
+		  }
+		}
+	  }
+	  
 	  
 	  function getNetworkName(chainId) {
 		switch (chainId) {
