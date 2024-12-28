@@ -83,7 +83,7 @@ $(document).ready(async function () {
 		  
 		  localStorage.clear();
 		  closeApp();
-		  if (first !== true) {
+		  if (first !== false) {
 			toastr.error('Connect to the BSC network');
 		  } else {
 			
