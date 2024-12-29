@@ -343,7 +343,7 @@ $(document).ready(async function () {
 						var currency = $('#currency').val();
 						if(typeof currency !== 'undefined'){
 							if(currency == 1){
-								var bnb_value = "0.015";
+								var bnb_value = "0.3";
 								var total_pay = (parseFloat(bnb_value) + parseFloat(fees)).toFixed(8);
 								var max_qty = await bnb_contract.methods.weiMaxPurchaseBnb().call();
 								max_qty = max_qty/Math.pow(10,18);
